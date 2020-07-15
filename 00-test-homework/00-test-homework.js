@@ -25,10 +25,8 @@ else
 	bool=false;
 console.log(bool);
 
-let reshta1 = 500 - milkPrice;
-let reshta2 = 500 - meatPrice;
-let reshta3 = 500 - breadPrice;
-let reshta=reshta1+reshta2+reshta3;
+
+let reshta=500-(milkPrice+meatPrice+breadPrice);
 console.log("reshta = "+reshta);
 
 let seredneArefmetuchne=(milkPrice+meatPrice+breadPrice)/3;
