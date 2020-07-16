@@ -1,6 +1,6 @@
-let milkPrice = 15.678;
-let meatPrice = 123.965;
-let breadPrice = 90.2345;
+const milkPrice = 15.678;
+const meatPrice = 123.965;
+const breadPrice = 90.2345;
 
 
 let maxPrice=Math.max(milkPrice,meatPrice,breadPrice);
@@ -18,31 +18,29 @@ console.log("sum without penny = "+sumWithoutPenny);
 let sumToHundreds=Math.round((milkPrice+meatPrice+breadPrice)/100)*100;
 console.log("sumToHundreds"+sumToHundreds);
 
-let bool;
-if(sumWithoutPenny %2 ==0)
-	bool=true;
-else
-	bool=false;
-console.log(bool);
 
 
-let reshta=500-(milkPrice+meatPrice+breadPrice);
-console.log("reshta = "+reshta);
+let isEven = (sumWithoutPenny % 2 === 0 )? true+" =Парне":false+"=Не парне";
+console.log(isEven);
 
-let seredneArefmetuchne=(milkPrice+meatPrice+breadPrice)/3;
-console.log("seredne 3 tovariv"+seredneArefmetuchne.toFixed(2));
 
-let skidka =Math.floor(Math.random() * 100); 
-let skidkaVGrivnah=(sum/100)*skidka;
-let sumaDoOplatyzSkidka;
-sumaDoOplatyzSkidka=(sum -skidkaVGrivnah);
+let rest=500-(milkPrice+meatPrice+breadPrice);
+console.log("reshta = "+rest);
 
-let chistiyPrybytok;
-chistiyPrybytok=(sum/2)-skidkaVGrivnah;
-console.log("skidka y % ="+skidka);
+let averageValue=(milkPrice+meatPrice+breadPrice)/3;
+console.log("seredne 3 tovariv"+averageValue.toFixed(2));
 
-console.log("suma do oplaty z skidkoi "+sumaDoOplatyzSkidka.toFixed(2));
-console.log("chistiy prybytok = "+chistiyPrybytok);
+let discont =Math.floor(Math.random() * 100); 
+let discontInGrivna=(sum/100)*discont;
+let sumPaymentvithDiscont;
+sumPaymentvithDiscont=(sum -discontInGrivna);
+
+let profit;
+profit=(sum/2)-discontInGrivna;
+console.log("skidka y % ="+discont);
+
+console.log("suma do oplaty z skidkoi "+sumPaymentvithDiscont.toFixed(2));
+console.log("chistiy prybytok = "+profit);
 //advanced
 let strokaRes = `
 Максимальне значення:${maxPrice};
@@ -51,10 +49,10 @@ let strokaRes = `
 
 Сума товарів без копійок:${sumWithoutPenny};
 Сума округлена до сотень:${sumToHundreds};
-Парне чи не парне число:${bool};
-Решта від 500 грн:${reshta};
-Середнє значення цін:${seredneArefmetuchne};
-Чистий прибуток:${chistiyPrybytok};
+Парне чи не парне число:${isEven};
+Решта від 500 грн:${rest};
+Середнє значення цін:${averageValue};
+Чистий прибуток:${profit};
 `;
 console.log(strokaRes);
 
@@ -66,10 +64,10 @@ container.innerHTML=`
 
 <p>Сума товарів без копійок:${sumWithoutPenny};</p>
 <p>Сума округлена до сотень:${sumToHundreds};</p>
-<p>Парне чи не парне число:${bool};</p>
-<p>Решта з 500 грн:${reshta};</p>
-<p>Середнє значення цін:${seredneArefmetuchne};</p>
-<p>Чистий прибуток:${chistiyPrybytok};</p>
+<p>Парне чи не парне число:${isEven};</p>
+<p>Решта з 500 грн:${rest};</p>
+<p>Середнє значення цін:${averageValue};</p>
+<p>Чистий прибуток:${profit};</p>
 
 `;
 
