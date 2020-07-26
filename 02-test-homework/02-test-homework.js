@@ -1,15 +1,38 @@
 function pow(a, n) {
-let b = document.getElementById("textBox2").value;
- n = document.getElementById("textBox3").value;
+//let b = document.getElementById("textBox2").value;
+ //let n = document.getElementById("textBox3").value;
+
+
      b = a;
 
  
+if( n == 0  )
+{
 
-    for (let i = 1; i < n; i++) {
+	b=1;
+}
+else 
+
+	if(n<0)
+	{
+		for ( let i = 1; i < -1*n; i++)
+		{
+		b*=a;
+
+	}
+	b=1/b;
+	}
+
+
+else
+{
+
+    for ( let i = 1; i < n; i++) {
 
         b *= a;
 
     }
+}
 
  return b;
 
@@ -80,7 +103,18 @@ function vivod3 ()
 function randomInteger(min, max) {
  min=document.getElementById("textBox6").value;
  max=document.getElementById("textBox7").value;
-  let rand = min - 0.5 + Math.random() * (max - min + 1);
+ let rand =0;
+ if(min >= max)
+ {
+ 	alert("Error");
+ }
+ else
+ {
+
+   rand = min - 0.5 + Math.random() * (max - min + 1);
+
+	}
+
   return Math.round(rand);
 }
 function vivod4 ()
@@ -112,38 +146,25 @@ function vivod5 ()
 }
 //alert(countLetters("A","Ababagalamagaaaa"));
 
-function converting (money , currency)
-{ money=document.getElementById("textBox10").value;
-currency=document.getElementById("textBox11").value;
-let convertingmoney = String(money);
- 
-if(currency === '$')
-	convertingmoney= money*27;
-else
+function converting(value) {
+    if(String(value).split('').reverse()[0] === '$') {
+        value = (parseInt(value) * 25) + "UAH";
+        return value;
+    } else if (String(value).split('').reverse()[0] === 'h' || String(value).split('').reverse()[0] === 'H') {
+        value = (parseInt(value) / 25) + "$";
+        return value;
+    } else {
+        return 'Неправильні дані!';
+    }
 
-	if(currency === 'uah' || currency === 'UAH')
-		convertingmoney=(money/27);
-
-
-else
-
-alert("Error");
-
-
-return convertingmoney.toFixed(2);
-
-}
-function vivod6 ()
+        }
+        function vivod6 ()
 {
-	let a =converting(document.getElementById("textBox10").value,document.getElementById("textBox11").value);
+	let a =converting(document.getElementById("textBox10").value);
 	alert(a);
 }
 //alert(converting(200,'uah'));
 
-function getRandomArbitrary(min, max) {
-  return (Math.floor(Math.random() * (max - min) + min));
-}
-//alert(Math.floor(getRandomArbitrary(0,10)));
 
 function randomPassword ( )
 
@@ -189,23 +210,8 @@ function vivod7 ()
 	alert(z);
 }
 
-//alert(deleteLetter('a','Ababagalamaga'));
 
-/*function isPalyndrom(word) 
-{
-    word = String(word).toLowerCase().split('');
-   let wordReverse=word.reverse();
-    if (word === wordReverse ) 
-        return true;
-     else 
-        return false; 
 
-        //don't working... need to help!)
-    
-
-}
-alert(isPalyndrom("Я несу гусеня "));
-*/
 function unique_letters(str) {
 	str =document.getElementById("textBox14").value
   var str = str.split('');
@@ -220,4 +226,3 @@ function vivod8 ()
 	let k =unique_letters(document.getElementById("textBox14").value);
 	alert(k);
 }
-//alert(unique_letters("anaconda"));
