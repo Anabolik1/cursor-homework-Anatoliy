@@ -34,7 +34,7 @@ function getSubjects(name)
     return les;
 }
 
-console.log(getSubjects(students[0]));
+alert(getSubjects(students[0]));
 
 
 
@@ -50,19 +50,14 @@ function getAverageMark(avarage)
 
 console.log(getAverageMark(students[0]));
 
-function getStudentInfo(student)
-
-{
-  const infoStudent = [];
-  const course=student.course;
-  const name=student.name;
-  const avarageMarkStudent=getAverageMark(student);
-
-  infoStudent.push("course - " +course+' '+"name - "+name +' '+"mark - "+avarageMarkStudent);
-  return infoStudent;
-
-}
-console.log(getStudentInfo(students[2]));
+const getStudentInfo = (students) => {
+  
+    const {name, course} = students;
+    return {name, course, averageMark: getAverageMark(students)}
+     
+    
+    };
+    console.log(getStudentInfo(students [2]));
 
 
 
