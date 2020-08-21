@@ -27,7 +27,7 @@ class Student
     		return this._marks.push(mark);
     	else
 
-    	return console.log(null);
+    	return ;
     }
 
     get marks ()
@@ -35,9 +35,8 @@ class Student
     {
     	if(this.student)
 
-    	 console.log(this._marks);
-    	else
-    		console.log(null);
+    	 return(this._marks);
+    	
    
     }
      getAverageMark() {
@@ -90,11 +89,11 @@ class BudgetStudent extends Student
 		if(this.student)
 		{
 			if(this.getAverageMark()<4){
-				console.log("Ви не попали до списку стипендіатів");
+				return("Ви не попали до списку стипендіатів");
 				
 			}
 			else{
-				console.log("Ви отримали стипендію у розмірі 1400 грн");
+				return("Ви отримали стипендію у розмірі 1400 грн");
 				
 			}
 		}
