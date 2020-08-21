@@ -28,7 +28,7 @@ function getRandomChinese(length)
 
  btn.addEventListener("click", ()=>{
 
- 	getRandomChinese(5).then((result => {
+ 	getRandomChinese(5).then((result) => {
  		
  		document.getElementById("result").innerHTML = result;
 
