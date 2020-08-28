@@ -1,0 +1,66 @@
+body
+{
+	background-image: url(img/background.jpg) ;
+	background-repeat: no-repeat;
+	 background-size: 100%;
+}
+
+
+#btn1
+{ width: 200px;
+	height: 50px;
+	background-color: yellow;
+	
+
+border-radius: 70px;
+margin-left : 1250px;
+
+}
+.hero
+{
+	position: fixed;
+
+}
+
+#btn2
+{ 
+	width: 200px;
+	height: 50px;
+	background-color: yellow;
+	
+	border-radius: 70px;
+}
+
+#prev
+{
+	background-color: yellow;
+	height: : 800px;
+	width: 50px;
+
+	border-radius: 15px;
+}
+#next{
+	background-color: yellow;
+	height: : 800px;
+
+	border-radius: 15px;
+}
+	
+	
+.personage
+{
+	width: 300px;
+	display: flex;
+	justify-content: center;
+    margin: 10px;
+	background-color: yellow;
+	border-radius: 15px;
+	text-align: center;
+	
+	}
+
+	.planets
+	{
+		margin-left: 1500px;
+		position: fixed;
+	}
