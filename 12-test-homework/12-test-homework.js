@@ -1,5 +1,5 @@
 const res = document.getElementById(`result`);
-let fontSize = 14;
+let fontSize = 16;
 let bool;
 
 
