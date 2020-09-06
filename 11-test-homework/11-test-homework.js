@@ -1,6 +1,6 @@
 const BASE = 'https://swapi.dev/api/';
 const FILMSECOND = `https://swapi.dev/api/films/2/`;
-const film = `https://swapi.dev/api/films/`;
+
 
 
 const btn1 = document.getElementById(`btn1`);
@@ -18,7 +18,8 @@ function getPlanets (page) {
 	return axios.get(BASE + 'planets',config)
 	.then((res)=>{
 	return 'res: ',res.data.results;
-}).catch(()=>{
+})
+	.catch(()=>{
 	console.log("something wrong");
 });
 
@@ -31,17 +32,17 @@ function renderPlanets(planets) {
 	const container = document.querySelector('.planets');
 	container.innerHTML=``;
 
-	planets.forEach(planet => {
+	planets.forEach((elem) => {
 		const planetElement = document.createElement('div');
 		planetElement.className = `personage`;
 		planetElement.innerHTML =`
-		<h3> ${planet.name}</h3>
+		<h3> ${elem.name}</h3>
 		`;
 		 
 		
 
 	container.append(planetElement);
-		});
+		})
 }
 
 function showplanets() {
@@ -59,9 +60,7 @@ if( currentPage === 1 ) return;
 }
 
 btn1.addEventListener(`click`,()=> {
-	btnPrev.style.visible = `visible`;
-	btnNext.className = `.btn`;
-
+	
 getPlanets()
 .then(renderPlanets)
 
@@ -105,7 +104,17 @@ const getHerous = async () => {
 		const res = await fetch(FILMSECOND);
 		const data = await res.json();
 		data.characters.forEach(url =>{
-			getHerou(url);
+			getHerou(url).then((charLinks) => {
+            const newLinks = [];
+            for (let i = 0; i < charLinks.length; i++) {
+                newLinks[i] = charLinks[i].replace("http://", "https://");
+            }
+            return Promise.all(
+                newLinks.map((el) => {
+                    return axios.get(el).then((res) => res.data);
+                })
+            );
+        })
 		});
 	}
 	catch (e) {
