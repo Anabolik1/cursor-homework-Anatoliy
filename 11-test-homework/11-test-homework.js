@@ -104,17 +104,8 @@ const getHerous = async () => {
 		const res = await fetch(FILMSECOND);
 		const data = await res.json();
 		data.characters.forEach(url =>{
-			getHerou(url).then((charLinks) => {
-            const newLinks = [];
-            for (let i = 0; i < charLinks.length; i++) {
-                newLinks[i] = charLinks[i].replace("http://", "https://");
-            }
-            return Promise.all(
-                newLinks.map((el) => {
-                    return axios.get(el).then((res) => res.data);
-                })
-            );
-        })
+			const https = url.replace('http', 'https')
+      	getHerou(https);
 		});
 	}
 	catch (e) {
